@@ -50,7 +50,7 @@ export default function AboutPage() {
             <h2 className="mb-8 text-center text-2xl text-brand sm:text-3xl md:text-left">Meet the Team</h2>
           </Reveal>
           <div className="grid gap-6 lg:grid-cols-2">
-            {teamMembers.map((member) => (
+            {teamMembers.map((member, index) => (
               <Reveal key={member.name}>
                 <article className="rounded-2xl bg-white p-4 sm:p-5 lg:h-full lg:p-6">
                   <div className="flex items-start gap-4 lg:flex-col lg:items-center lg:gap-5 lg:text-center">
@@ -59,6 +59,8 @@ export default function AboutPage() {
                       src={member.image}
                       alt={member.name}
                       fill
+                      priority={index === 0}
+                      unoptimized
                       sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover object-top"
                     />
