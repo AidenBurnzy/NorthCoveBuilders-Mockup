@@ -8,12 +8,12 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/our-work", label: "Our Work" },
-  { href: "/floor-plans", label: "Floor Plans" },
   { href: "/contact", label: "Contact" },
 ];
 
 const secondaryLinks = [
-  { href: "/gallery", label: "Gallery" },
+  { href: "https://www.houzz.com/pro/neal39/north-cove-builders", label: "Houzz Gallery" },
+  { href: "/floor-plans", label: "Floor Plans" },
   { href: "/available", label: "Available" },
 ];
 

@@ -3,7 +3,14 @@ import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { floorPlans } from "@/lib/site-data";
 
+const homeTypeOrder = ["Multi-Story", "Single-Story"] as const;
+
 export default function FloorPlansPage() {
+  const plansByType = homeTypeOrder.map((homeType) => ({
+    homeType,
+    plans: floorPlans.filter((plan) => plan.homeType === homeType),
+  }));
+
   return (
     <section className="section-shell !pt-40 md:!pt-[8.5rem]">
       <Reveal>
@@ -11,15 +18,52 @@ export default function FloorPlansPage() {
         <h1 className="mt-3 text-center text-3xl text-brand sm:text-4xl md:text-left md:text-5xl">Start with a plan, then make it yours.</h1>
       </Reveal>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {floorPlans.map((image, index) => (
-          <Reveal key={`${image}-${index}`}>
-            <article className="overflow-hidden rounded-2xl border border-black/5 bg-white">
-              <div className="relative h-72">
-                <Image src={image} alt={`Floor plan ${index + 1}`} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover" />
-              </div>
-            </article>
-          </Reveal>
+      <div className="mt-10 space-y-12">
+        {plansByType.map(({ homeType, plans }) => (
+          <div key={homeType}>
+            <Reveal>
+              <h2 className="text-center text-2xl text-brand sm:text-3xl md:text-left">{homeType} Homes</h2>
+            </Reveal>
+
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {plans.map((plan) => (
+                <Reveal key={plan.name}>
+                  <article className="overflow-hidden rounded-2xl border border-black/5 bg-white">
+                    <div className="relative h-56">
+                      <Image
+                        src={plan.image}
+                        alt={plan.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-5">
+                      <h3 className="text-xl text-brand">{plan.name}</h3>
+                      <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3 text-sm text-foreground/80">
+                        <p>
+                          <span className="block text-xs uppercase tracking-[0.12em] text-brand/70">Sq. Feet</span>
+                          {plan.squareFeet}
+                        </p>
+                        <p>
+                          <span className="block text-xs uppercase tracking-[0.12em] text-brand/70">Bedrooms</span>
+                          {plan.bedrooms}
+                        </p>
+                        <p>
+                          <span className="block text-xs uppercase tracking-[0.12em] text-brand/70">Baths</span>
+                          {plan.baths}
+                        </p>
+                        <p>
+                          <span className="block text-xs uppercase tracking-[0.12em] text-brand/70">Garage Stalls</span>
+                          {plan.garageStalls}
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
 
