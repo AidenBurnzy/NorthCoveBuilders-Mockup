@@ -184,8 +184,9 @@ export function Navbar() {
         className={`fixed inset-x-0 bottom-0 top-20 z-40 bg-[#0f2f57] transition-opacity duration-300 lg:hidden ${
           menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
+        onClick={() => setMenuOpen(false)}
       >
-        <div className="mx-auto flex h-full w-full max-w-7xl flex-col px-5 pb-8 pt-4">
+        <div className="mx-auto flex h-full w-full max-w-7xl flex-col px-5 pb-8 pt-4" onClick={(event) => event.stopPropagation()}>
           <nav className="grid gap-2">
             {[...navLinks, ...secondaryLinks].map((link, index) => (
               <Link
