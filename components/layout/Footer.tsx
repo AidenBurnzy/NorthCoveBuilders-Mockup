@@ -14,14 +14,23 @@ export function Footer() {
       <div className="section-shell grid gap-10 py-14 text-center md:grid-cols-4 md:py-16 md:text-left">
         <div className="space-y-3 md:col-span-2">
           <div className="inline-flex items-center">
-            <span className="inline-flex h-[3.25rem] w-[7.5rem] items-center justify-center rounded-xl bg-white px-2 py-1">
+            <span className="inline-flex h-[3.25rem] w-[7.5rem] items-center justify-center rounded-xl bg-white px-2 py-1 md:w-[10.5rem]">
               <Image
                 src="/brand/logo.png"
                 alt="North Cove Builders logo"
                 width={96}
                 height={52}
                 quality={100}
-                className="h-full w-full object-contain"
+                className="h-full w-full object-contain md:hidden"
+              />
+              <Image
+                src="/brand/logo-desktop.png"
+                alt="North Cove Builders logo"
+                width={260}
+                height={120}
+                quality={100}
+                unoptimized
+                className="hidden h-full w-full object-contain md:block"
               />
             </span>
           </div>

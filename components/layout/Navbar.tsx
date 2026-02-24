@@ -20,7 +20,9 @@ const secondaryLinks = [
 export function Navbar() {
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const lastScrollY = useRef(0);
+  const moreMenuRef = useRef<HTMLLIElement | null>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -53,11 +55,27 @@ export function Navbar() {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setMenuOpen(false);
+        setMoreOpen(false);
       }
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
+  useEffect(() => {
+    const onPointerDown = (event: MouseEvent) => {
+      if (!moreMenuRef.current) {
+        return;
+      }
+
+      if (!moreMenuRef.current.contains(event.target as Node)) {
+        setMoreOpen(false);
+      }
+    };
+
+    window.addEventListener("mousedown", onPointerDown);
+    return () => window.removeEventListener("mousedown", onPointerDown);
   }, []);
 
   return (
@@ -68,7 +86,7 @@ export function Navbar() {
     >
       <nav className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-4 px-5 md:px-8">
         <Link href="/" className="flex items-center">
-          <span className="inline-flex h-[3.75rem] w-[9rem] items-center justify-center rounded-xl bg-white px-2 py-1">
+          <span className="inline-flex h-[3.75rem] w-[9rem] items-center justify-center rounded-xl bg-white px-2 py-1 md:w-[13rem]">
             <Image
               src="/brand/logo.png"
               alt="North Cove Builders logo"
@@ -76,12 +94,21 @@ export function Navbar() {
               height={96}
               quality={100}
               priority
-              className="h-full w-full object-contain"
+              className="h-full w-full object-contain md:hidden"
+            />
+            <Image
+              src="/brand/logo-desktop.png"
+              alt="North Cove Builders logo"
+              width={180}
+              height={96}
+              quality={100}
+              priority
+              className="hidden h-full w-full object-contain md:block"
             />
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-4 text-sm font-medium lg:flex">
+        <ul className="hidden items-center gap-6 text-sm font-medium lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link href={link.href} className="transition hover:text-white/80">
@@ -89,25 +116,56 @@ export function Navbar() {
               </Link>
             </li>
           ))}
-          <li>
-            <details className="group relative">
-              <summary className="list-none cursor-pointer transition hover:text-white/80">More</summary>
-              <div className="absolute right-0 top-8 min-w-44 rounded-2xl bg-white p-2 text-brand shadow-lg">
-                {secondaryLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="block rounded-xl px-3 py-2 text-sm font-semibold transition hover:bg-surface"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </details>
+          <li ref={moreMenuRef} className="relative">
+            <button
+              type="button"
+              className="inline-flex items-center gap-1 rounded-full border border-white/35 px-3 py-1.5 transition hover:bg-white/10"
+              onClick={() => setMoreOpen((previous) => !previous)}
+              aria-expanded={moreOpen}
+              aria-controls="desktop-more-menu"
+            >
+              More
+              <svg
+                viewBox="0 0 20 20"
+                aria-hidden="true"
+                className={`h-4 w-4 transition-transform duration-200 ${moreOpen ? "rotate-0" : "rotate-180"}`}
+              >
+                <path
+                  d="M5.5 7.5 10 12l4.5-4.5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <div
+              id="desktop-more-menu"
+              className={`absolute right-0 top-10 min-w-44 rounded-2xl bg-white p-2 text-brand shadow-lg transition-all duration-200 ${
+                moreOpen ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-1 opacity-0"
+              }`}
+            >
+              {secondaryLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block rounded-xl px-3 py-2 text-sm font-semibold transition hover:bg-surface"
+                  onClick={() => setMoreOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </li>
         </ul>
 
         <div className="flex items-center gap-2">
+          <Link href="/contact" className="rounded-full bg-white px-3 py-2.5 text-sm font-semibold text-brand transition hover:bg-white/90 sm:px-4">
+            <span className="sm:hidden">Quote</span>
+            <span className="hidden sm:inline">Get a Free Quote</span>
+          </Link>
+
           <button
             type="button"
             className="rounded-full border border-white/40 px-3 py-2 text-sm font-semibold lg:hidden"
@@ -118,11 +176,6 @@ export function Navbar() {
           >
             {menuOpen ? "Close" : "Menu"}
           </button>
-
-          <Link href="/contact" className="rounded-full bg-white px-3 py-2.5 text-sm font-semibold text-brand transition hover:bg-white/90 sm:px-4">
-            <span className="sm:hidden">Quote</span>
-            <span className="hidden sm:inline">Get a Free Quote</span>
-          </Link>
         </div>
       </nav>
 
