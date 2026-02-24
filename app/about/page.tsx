@@ -49,12 +49,12 @@ export default function AboutPage() {
           <Reveal>
             <h2 className="mb-8 text-center text-2xl text-brand sm:text-3xl md:text-left">Meet the Team</h2>
           </Reveal>
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-6 lg:grid-cols-2">
             {teamMembers.map((member) => (
               <Reveal key={member.name}>
-                <article className="rounded-2xl bg-white p-4 sm:p-5">
-                  <div className="flex items-start gap-4 xl:block">
-                    <div className="relative h-44 w-32 shrink-0 overflow-hidden rounded-xl sm:h-48 sm:w-36 xl:h-72 xl:w-full">
+                <article className="rounded-2xl bg-white p-4 sm:p-5 lg:h-full lg:p-6">
+                  <div className="flex items-start gap-4 lg:flex-col lg:items-center lg:gap-5 lg:text-center">
+                    <div className="relative h-44 w-32 shrink-0 overflow-hidden rounded-xl sm:h-48 sm:w-36 lg:h-56 lg:w-44">
                     <Image
                       src={member.image}
                       alt={member.name}
@@ -63,14 +63,15 @@ export default function AboutPage() {
                       className="object-cover object-top"
                     />
                     </div>
-                    <div className="min-w-0 text-left xl:mt-4">
+                    <div className="min-w-0 text-left lg:text-center">
                       <h3 className="text-lg text-brand sm:text-xl">{member.name}</h3>
                       <p className="mt-1 text-sm text-foreground/70">{member.role}</p>
-                      <p className="mt-3 text-sm leading-7 text-foreground/80">
+                      <p className="mt-3 text-sm leading-7 text-foreground/80 md:hidden">
                         {expandedBios[member.name]
                           ? member.bio
                           : `${member.bio.slice(0, 180).trimEnd()}${member.bio.length > 180 ? "..." : ""}`}
                       </p>
+                      <p className="mt-3 hidden text-sm leading-7 text-foreground/80 md:block">{member.bio}</p>
                       {member.bio.length > 180 ? (
                         <button
                           type="button"
