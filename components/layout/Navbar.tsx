@@ -84,9 +84,9 @@ export function Navbar() {
         hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <nav className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-4 px-5 md:px-8">
+      <nav className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-2 px-4 md:gap-4 md:px-8">
         <Link href="/" className="flex items-center">
-          <span className="inline-flex h-[3.75rem] w-[9rem] items-center justify-center rounded-xl bg-white px-2 py-1 md:w-[13rem]">
+          <span className="inline-flex h-[3.25rem] w-[7.5rem] items-center justify-center rounded-xl bg-white px-2 py-1 md:h-[3.75rem] md:w-[13rem]">
             <Image
               src="/brand/logo.png"
               alt="North Cove Builders logo"
@@ -160,7 +160,7 @@ export function Navbar() {
           </li>
         </ul>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 md:gap-2">
           <Link href="/contact" className="rounded-full bg-white px-3 py-2.5 text-sm font-semibold text-brand transition hover:bg-white/90 sm:px-4">
             <span className="sm:hidden">Quote</span>
             <span className="hidden sm:inline">Get a Free Quote</span>

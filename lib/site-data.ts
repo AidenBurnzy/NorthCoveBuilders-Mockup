@@ -39,34 +39,50 @@ export const featuredProjects = [
 
 export const reviews = [
   {
-    name: "Placeholder Client A",
-    quote: "Placeholder review text for layout preview only. Replace with real homeowner testimonial.",
+    name: "Ken & Pam Waite",
+    quote:
+      "We hired North Cove to build our new home after meeting Neal at the Parade of Homes. We were impressed with the quality of his work and his professionalism. We are extremely happy with the finished product.",
   },
   {
-    name: "Placeholder Client B",
-    quote: "Placeholder review text for layout preview only. Replace with real homeowner testimonial.",
+    name: "Jeff & Amy Bergstrom",
+    quote:
+      "We are very happy with our home and the process North Cove provided from start to completion. As with any new build there are always hiccups, but North Cove has stood behind their work at every occasion.",
   },
   {
-    name: "Placeholder Client C",
-    quote: "Placeholder review text for layout preview only. Replace with real homeowner testimonial.",
+    name: "Ryan & Katie Zvonek",
+    quote:
+      "The quality of work and standard options rival other builders' upgrades. They stuck to a strict timeline and budget, and the honesty and professionalism of the entire team was outstanding.",
   },
 ];
 
 export const teamMembers = [
   {
     name: "Neal",
-    role: "Founder & Builder",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80",
+    role: "Owner/Builder",
+    image: "/team/neal.jpg",
+    bio:
+      "I have been in the new home industry for over 20 years, first as a carpenter and later as a construction manager responsible for 60-80 homes per year. After two decades with other builders, I started North Cove Builders to stay hands-on, build high-value homes, and deliver unmatched customer service.",
   },
   {
-    name: "Lindsey",
-    role: "Client Experience",
-    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80",
+    name: "Elisha",
+    role: "Plan Design Specialist",
+    image: "/team/elisha.jpg",
+    bio:
+      "Whether you choose one of our existing floor plans or start from scratch, I guide you through designing a home that fits your needs, lifestyle, and dreams. We shape the layout first, then layer in details and character inside and out.",
   },
   {
-    name: "Matt",
-    role: "Project Management",
-    image: "https://images.unsplash.com/photo-1545167622-3a6ac756afa4?auto=format&fit=crop&w=900&q=80",
+    name: "Cindy",
+    role: "Selection Specialist",
+    image: "/team/cindy.jpg",
+    bio:
+      "I walk you through interior and exterior finish selections so each space feels exactly how you imagine it. My objective is to make every design meeting organized, enjoyable, and focused on bringing your home to life through colors, textures, and materials.",
+  },
+  {
+    name: "Bryan",
+    role: "Project Manager",
+    image: "/team/bryan.jpg",
+    bio:
+      "I guide you through construction once design is complete, keeping communication clear and schedules on track. I coordinate our team, vendors, and subcontractors so your home is built to our highest standards from start to finish.",
   },
 ];
 

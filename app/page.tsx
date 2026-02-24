@@ -23,8 +23,11 @@ export default function Home() {
                 North Cove Builders · Hudsonville, Michigan
               </p>
               <h1 className="text-3xl leading-tight sm:text-4xl md:text-6xl">
-                Personal custom homes designed around the way you live.
+                Build the home you&apos;ve always dreamed of.
               </h1>
+              <p className="max-w-2xl text-base text-white/90 sm:text-lg">
+                Custom Designs. Straightforward Pricing. A Clear &amp; Precise Process.
+              </p>
               <Link href="/contact" className="btn-brand">
                 Schedule a Free Consultation
               </Link>
@@ -36,9 +39,12 @@ export default function Home() {
       <section className="section-shell">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-2xl text-brand sm:text-3xl md:text-4xl">Built with craft. Guided by relationship.</h2>
+            <h2 className="text-2xl text-brand sm:text-3xl md:text-4xl">You&apos;ll feel at home long before you move in.</h2>
             <p className="mt-4 text-lg text-foreground/80">
-              North Cove Builders delivers boutique custom homes across West Michigan with a personal process, clear communication, and quality that lasts for years.
+              We pride ourselves in our dedication to making your home building experience a great one. Good communication is the foundation of our building process, and your involvement and satisfaction is our #1 concern.
+            </p>
+            <p className="mt-4 text-lg text-foreground/80">
+              Working with a builder you trust is key to limiting the stress of building a new home. Our transparent pricing structure, thorough process, and commitment to service are the key elements of our success.
             </p>
           </div>
         </Reveal>
@@ -84,17 +90,11 @@ export default function Home() {
       <section className="section-shell">
         <Reveal>
           <h2 className="mb-8 text-center text-2xl text-brand sm:text-3xl">What Homeowners Are Saying</h2>
-          <p className="mb-8 text-center text-sm font-semibold uppercase tracking-[0.12em] text-brand/70">
-            Placeholder Reviews · For Layout Preview
-          </p>
         </Reveal>
         <div className="grid gap-5 md:grid-cols-3">
           {reviews.map((review) => (
             <Reveal key={review.name}>
               <article className="card-soft rounded-2xl">
-                <p className="mb-2 inline-flex rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-brand">
-                  Placeholder
-                </p>
                 <p className="text-brand">★★★★★</p>
                 <p className="mt-3 text-sm leading-7 text-foreground/80">“{review.quote}”</p>
                 <p className="mt-5 text-sm font-semibold text-foreground">{review.name}</p>

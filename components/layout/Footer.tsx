@@ -53,11 +53,24 @@ export function Footer() {
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-white/80">Contact</h3>
           <ul className="mt-4 space-y-2 text-sm text-white/90">
-            <li>(616) 682-7422</li>
-            <li>Hudsonville, Michigan</li>
+            <li>
+              <a href="tel:+16166827422" className="hover:underline">
+                (616) 682-7422
+              </a>
+            </li>
+            <li>
+              <a href="mailto:northcovebuilders@gmail.com" className="hover:underline">
+                northcovebuilders@gmail.com
+              </a>
+            </li>
+            <li>6147 N. Cove Court, Hudsonville, MI 49426</li>
             <li>
               <a href="https://www.facebook.com" target="_blank" rel="noreferrer" className="hover:underline">
                 Facebook
+              </a>
+              <span className="mx-2">·</span>
+              <a href="https://www.instagram.com" target="_blank" rel="noreferrer" className="hover:underline">
+                Instagram
               </a>
               <span className="mx-2">·</span>
               <a href="https://www.houzz.com" target="_blank" rel="noreferrer" className="hover:underline">

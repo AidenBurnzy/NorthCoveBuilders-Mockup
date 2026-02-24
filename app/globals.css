@@ -93,3 +93,16 @@ textarea,
 button {
   font-size: 16px;
 }
+
+.accordion-summary {
+  user-select: none;
+}
+
+.accordion-chevron {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+details[open] > .accordion-summary .accordion-chevron {
+  transform: rotate(180deg);
+}

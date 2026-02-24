@@ -7,12 +7,12 @@ export default function AvailablePage() {
     <section className="section-shell !pt-40 md:!pt-[8.5rem]">
       <Reveal>
         <p className="text-center text-sm font-semibold uppercase tracking-[0.15em] text-brand md:text-left">Available Homes & Home Sites</p>
-        <h1 className="mt-3 text-center text-4xl text-brand md:text-left md:text-5xl">Find your next home opportunity in West Michigan.</h1>
+        <h1 className="mt-3 text-center text-3xl text-brand sm:text-4xl md:text-left md:text-5xl">Find your next home opportunity in West Michigan.</h1>
       </Reveal>
 
       <section className="mt-12">
         <Reveal>
-          <h2 className="text-center text-3xl text-brand md:text-left">Available Homes</h2>
+          <h2 className="text-center text-2xl text-brand sm:text-3xl md:text-left">Available Homes</h2>
         </Reveal>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {availableHomes.map((home) => (
@@ -32,7 +32,7 @@ export default function AvailablePage() {
 
       <section className="mt-16">
         <Reveal>
-          <h2 className="text-center text-3xl text-brand md:text-left">Available Home Sites</h2>
+          <h2 className="text-center text-2xl text-brand sm:text-3xl md:text-left">Available Home Sites</h2>
         </Reveal>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {availableSites.map((site) => (

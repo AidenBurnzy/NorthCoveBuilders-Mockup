@@ -56,7 +56,7 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={onSubmit} className="card-soft grid gap-4 text-center sm:text-left" noValidate>
+    <form onSubmit={onSubmit} className="card-soft !p-4 sm:!p-6 grid gap-4 text-center sm:text-left" noValidate>
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="grid gap-2 text-sm font-medium">
           Name
