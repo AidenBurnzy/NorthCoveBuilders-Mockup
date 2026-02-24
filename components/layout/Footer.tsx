@@ -73,7 +73,7 @@ export function Footer() {
                 Instagram
               </a>
               <span className="mx-2">·</span>
-              <a href="https://www.houzz.com" target="_blank" rel="noreferrer" className="hover:underline">
+              <a href="https://www.houzz.com/pro/neal39/north-cove-builders" target="_blank" rel="noreferrer" className="hover:underline">
                 Houzz
               </a>
             </li>
