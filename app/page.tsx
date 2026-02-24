@@ -13,7 +13,7 @@ export default function Home() {
           fill
           priority
           sizes="100vw"
-          className="origin-top object-cover object-top"
+          className="origin-top object-cover object-[73%_top] md:object-top"
         />
         <div className="absolute inset-0 bg-black/35" />
         <div className="section-shell relative z-10 flex min-h-[78vh] items-end pb-12 md:items-end">
